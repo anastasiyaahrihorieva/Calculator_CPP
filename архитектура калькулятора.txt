@@ -1,0 +1,51 @@
+структура: 
+
+/calc.exe
+/plugins/
+    funcsin.dll
+    funccos.dll
+    functg.dll
+    funcctg.dll
+    funcln.dll
+    funcsqrt.dll
+    funcdeg.dll
+    ...
+/src/
+    Calculator.h / .cpp
+    ExpressionParser.h / .cpp
+    IOperation.h
+    BaseOperation.h
+    PluginManager.h
+    FunctionOperation.h
+    Exceptions.h
+
+
+классы:
+
+1. Calculator - запуск, вызов парсера, выполнение операций;
+2. IOperation - у каждой операции свое кол-во аргументов, каждая делает свое.
+	2.1 AddOperation
+	2.2 MulOperation
+	2.3 MinusOperation
+
+	2.4 FunctionOperation - обертка для оп-ий из dll, каждый плагин экспортирует одну функцию с сигнатурой
+	
+3. PluginManager - поиск, загрузка из ./plugins и обертывание в FunctionOperation.
+4. ExpressionParser - парсер для инфиксной записи, его вычисления с учетом приоритета. 
+два стека: операторы и операнды, (), ф-и из плагинов.
+
+
+exceptions:
+
+1. при загрузке из dll - плагин игнорируется;
+2. при выполнении (вроде ln(-100)) - ошибка у обертки, выводится ошибка, работу продолжает
+3. нет плагинов - работа только с базовыми операциями
+4. спец проверка деления на ноль
+
+
+паттерны: 
+
+Calculator - синглтон,
+IOperation - стратегия,
+PluginManager - фабричный метод,
+ExpressionParser - шаблонный метод
