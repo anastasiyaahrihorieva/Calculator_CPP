@@ -9,6 +9,12 @@
 
 using PluginFunc = double(*)(const double* args, int argc);
 
+struct PluginInfo {
+    std::string functionName;  
+    PluginFunc functionPtr;    
+    int argumentCount;        
+};
+
 class FunctionOperation : public IOperation {
 public:
     FunctionOperation(std::string name, PluginFunc fn, int argc);

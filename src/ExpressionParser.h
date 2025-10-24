@@ -9,9 +9,8 @@
 
 class ExpressionParser {
 public:
-    ExpressionParser() = default;
+    explicit ExpressionParser(const std::vector<std::shared_ptr<IOperation>>& operations);
     virtual ~ExpressionParser() = default;
-
     double evaluate(const std::string& expression, const std::vector<std::shared_ptr<IOperation>>& operations);
 
 protected:

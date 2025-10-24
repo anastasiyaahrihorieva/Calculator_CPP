@@ -8,7 +8,6 @@
 class BaseOperation : public IOperation {
 public:
     explicit BaseOperation(std::string name, int argc);
-    ~BaseOperation() override = default;
     int arity() const override;
     std::string name() const override;
 
