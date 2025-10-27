@@ -1,12 +1,12 @@
-#include "Calculator.h"
-#include <iostream>
+#include<string>
+#include<iostream>
+#include"calc.cpp"
 
-int main() {
-    try {
-        Calculator::instance().run();
-    } catch (const std::exception& e) {
-        std::cerr << "Fatal error: " << e.what() << std::endl;
-        return 1;
-    }
+int main(){
+    std::string expr;
+    std::cout << "Enter yout expression: ";
+    std::getline(std::cin, expr); 
+    double res = Calculate(expr);
+    std::cout << "Result: " << res << std::endl;
     return 0;
 }
