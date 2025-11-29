@@ -1,4 +1,4 @@
-Григориева Анастасия, 5030102/30202.
+Григорьева Анастасия, 5030102/30202.
 # Wrapper
 
 Проект реализует инкапсуляцию методов класса произвольной сигнатуры
@@ -52,7 +52,8 @@ make
 ##
 
 При успешном запуске появятся результаты тестов: 
-
+```
 unit test from task: executing command1 with {arg1: 4, arg2: 5} -> f3 called with arg1=4, arg2=5
 test f3_1: executing command1 with {arg2: 7, arg1: 3} -> f3 called with arg1=3, arg2=7
 ...
+```
